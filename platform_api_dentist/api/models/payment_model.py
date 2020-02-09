@@ -29,4 +29,4 @@ class Payment(models.Model):
         )
     ])
     bank_name = models.CharField(max_length=15)
-    pay = models.FloatField()
+    amount_pay = models.FloatField()
