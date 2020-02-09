@@ -46,8 +46,7 @@ class Patient(models.Model):
     date_of_birth = models.DateTimeField()
     email = models.CharField(max_length=15)
     outstanding_balance = models.FloatField()
-    next_appoitment = models.DateTimeField(null=True)
-    app_id = models.IntegerField()  # Foreign Key
+    next_appointment = models.DateTimeField(null=True)
     payment_type = models.CharField(
         max_length=50,
         choices=[(payment, payment.value) for payment in PaymentTypes],
