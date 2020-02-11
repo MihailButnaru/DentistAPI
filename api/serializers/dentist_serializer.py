@@ -1,9 +1,10 @@
 from rest_framework.serializers import ModelSerializer
-from api import DentistSpecialist
+from api.models.dentist_model import DentistSpecialist
 
 
 class DentistSerializer(ModelSerializer):
     """Model for dentist serializer."""
+
     class Meta:
         model = DentistSpecialist
-        fields = ['__all__']
+        fields = ["specialist_name"]

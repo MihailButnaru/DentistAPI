@@ -1,4 +1,5 @@
 import django
+
 django.setup()
 
 from .patient_model import Patient, Address
@@ -14,5 +15,5 @@ __all__ = [
     Treatment,
     DentistSpecialist,
     AppointmentCard,
-    Appointments
+    Appointments,
 ]
