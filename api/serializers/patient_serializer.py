@@ -1,5 +1,6 @@
 from rest_framework.serializers import ModelSerializer
-from platform_api_dentist.api.models import Patient, Address, Payment
+from api.models.patient_model import Patient, Address
+from api.models.payment_model import Payment
 
 
 class AddressSerializer(ModelSerializer):

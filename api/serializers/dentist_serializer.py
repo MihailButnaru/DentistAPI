@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from platform_api_dentist.api.models import DentistSpecialist
+from api import DentistSpecialist
 
 
 class DentistSerializer(ModelSerializer):
