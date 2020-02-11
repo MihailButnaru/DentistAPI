@@ -1,21 +1,31 @@
 from rest_framework.serializers import ModelSerializer
-from platform_api_dentist.api.models import Appointments, AppointmentCard, Treatment
+from api.models import Appointments, AppointmentCard, Treatment
 
 
 class AppointmentsSerializer(ModelSerializer):
     """Model for Appointments Serializer"""
+
     class Meta:
         model = Appointments
-        fields = ['__all__']
+        fields = ["time", "location"]
 
 
 class AppointmentCardSerializer(ModelSerializer):
     """Model for Appointment Card Serializer."""
+
     appointment_time = AppointmentsSerializer(many=True)
 
     class Meta:
         model = AppointmentCard
-        fields = ['__all__']
+        fields = [
+            "name",
+            "address",
+            "treatment_type",
+            "treatment_price",
+            "appointment_time",
+            "note",
+            "dentist_note",
+        ]
 
 
 class TreatmentSerializer(ModelSerializer):
@@ -23,4 +33,4 @@ class TreatmentSerializer(ModelSerializer):
 
     class Meta:
         model = Treatment
-        fields = ['__all__']
+        fields = ["treatment_type", "treatment_price"]

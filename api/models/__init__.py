@@ -1,3 +1,7 @@
+import django
+
+django.setup()
+
 from .patient_model import Patient, Address
 from .payment_model import Payment
 from .dentist_model import DentistSpecialist
@@ -11,5 +15,5 @@ __all__ = [
     Treatment,
     DentistSpecialist,
     AppointmentCard,
-    Appointments
+    Appointments,
 ]

@@ -5,16 +5,14 @@ from django.core.validators import RegexValidator
 from django.db import models
 
 
-class Genre(Enum):
-    M = "masculine"
-    F = "feminine"
+GENRE = (("M", "Masculine"), ("F", "Feminine"))
 
-
-class PaymentTypes(Enum):
-    Pending_confirmation = "Pending_confirmation"
-    Direct_Debit = "Direct Debit"
-    One_time = "One-time Payment"
-    Installments = "Installments"
+PAYMENT_TYPES = (
+    ("Direct Debit", "Direct Debit"),
+    ("Pending confirmation", "Pending confirmation"),
+    ("One time Payment", "One time Payment"),
+    ("Installments", "Installments"),
+)
 
 
 class Patient(models.Model):
@@ -40,18 +38,13 @@ class Patient(models.Model):
             )
         ],
     )
-    genre = models.CharField(
-        max_length=15, choices=[(genre, genre.value) for genre in Genre]
-    )
+    genre = models.CharField(max_length=15, choices=GENRE)
     date_of_birth = models.DateTimeField()
-    email = models.CharField(max_length=15)
+    email = models.CharField(max_length=50)
     outstanding_balance = models.FloatField()
-    next_appointment = models.DateTimeField(null=True)
-    payment_type = models.CharField(
-        max_length=50,
-        choices=[(payment, payment.value) for payment in PaymentTypes],
-        null=True,
-    )
+    next_appoitment = models.DateTimeField(null=True)
+    app_id = models.IntegerField()  # Foreign Key
+    payment_type = models.CharField(max_length=50, choices=PAYMENT_TYPES, null=True,)
 
 
 class Address(models.Model):
